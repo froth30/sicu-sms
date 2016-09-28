@@ -1,9 +1,8 @@
 # wearable-stress-measurement
+
 SICU Stress Measurement System Front-End Program
 
-Senior Capstone Project
-
-Biomedical Engineering Design Experience
+Biomedical Engineering Design Experience Project
 
 Case Western Reserve University
 
