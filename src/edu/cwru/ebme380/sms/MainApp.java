@@ -26,6 +26,7 @@ public class MainApp extends PApplet {
     public void settings() {
         fullScreen();
         focused = true;  // unlike size(int, int), fullscreen() loses the focus
+        smooth();
     }
     
     @Override
@@ -35,9 +36,17 @@ public class MainApp extends PApplet {
     
     @Override
     public void draw() {
-        stroke(0, 210, 0);
-        fill(0, 159, 0);
-        ellipse(width/2, height/2, 64,64);
+        // fade background
+        fill(0, 20);
+        rect(0, 0, width-1, height-1);
+        
+        // draw orbiter
+        stroke(0, 0, 210);
+        fill(0, 0, 159);
+        int t = millis();
+        float x = 64 * sin(t/200f);
+        float y = 64 * cos(t/200f);
+        ellipse(width/2 + x, height/2 - y, 32, 32);
     }
     
 }
