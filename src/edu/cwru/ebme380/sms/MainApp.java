@@ -1,9 +1,10 @@
 package edu.cwru.ebme380.sms;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 
 /**
- * The main stage of the front-end program for interfacing with the electronic system.
+ * <p> The main stage of the front-end program for interfacing with the electronic system.
  *
  * @since September 27, 2016
  * <br>
@@ -40,13 +41,20 @@ public class MainApp extends PApplet {
         fill(0, 20);
         rect(0, 0, width-1, height-1);
         
+        // display project name
+        PFont font = createFont("Colonna MT", 64, true);
+        textFont(font);
+        textAlign(CENTER);
+        fill(0, 0, 180);
+        text("SICU Stress Measurement System", width/2, height/2 - 200);
+        
         // draw orbiter
         stroke(0, 0, 210);
         fill(0, 0, 159);
         int t = millis();
-        float x = 64 * sin(t/200f);
-        float y = 64 * cos(t/200f);
-        ellipse(width/2 + x, height/2 - y, 32, 32);
+        float x = 50 * sin(t/200f);
+        float y = 50 * cos(t/200f);
+        ellipse(width/2 + x, height/2 - y, 20, 20);
     }
     
 }
