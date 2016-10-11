@@ -1,26 +1,27 @@
-package edu.cwru.ebme380.sms;
+/*                                                                      *\
+**                    SICU Stress Measurement System                    **
+**                      Project P04  |  C380 Team A                     **
+**          EBME 380: Biomedical Engineering Design Experience          **
+**                    Case Western Reserve University                   **
+**                          2016 Fall Semester                          **
+\*                                                                      */
+
+package edu.cwru.sicu_sms;
 
 import processing.core.PApplet;
 import processing.core.PFont;
 
 /**
- * <p> The main stage of the front-end program for interfacing with the electronic system.
+ * The main stage of the front-end program for interfacing with the electronic system.
  *
  * @since September 27, 2016
- * <br>
- * <br> <b><u>SICU Stress Measurement System</u></b>
- * <br> Project P04 | C380 Team A
- * <br> <i>
- * <br> Case Western Reserve University
- * <br> EBME 380: BME Design Experience
- * <br> Fall 2016 Semester
- * @author Theodore Frohlich <ttf10@case.edu>
- * @author Abigail Walker <amw138@case.edu>
+ * @author Ted Frohlich <ttf10@case.edu>
+ * @author Abby Walker <amw138@case.edu>
  */
 public class MainApp extends PApplet {
     
     public static void main(String[] args) {
-        PApplet.main(new String[] {"--present", "edu.cwru.ebme380.sms.MainApp"});
+        PApplet.main(new String[] {"--present", "edu.cwru.sicu_sms.MainApp"});
     }
     
     @Override
