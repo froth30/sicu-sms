@@ -1,4 +1,4 @@
-# wearable-stress-measurement
+# stress-measurement-system
 
 SICU Stress Measurement System Front-End Program
 
