@@ -1,8 +1,8 @@
 # stress-measurement-system
 
-SICU Stress Measurement System Front-End Program
+SICU Stress Measurement System
 
-Biomedical Engineering Design Experience Project
+Biomedical Engineering Design Experience
 
 Case Western Reserve University
 
