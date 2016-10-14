@@ -8,6 +8,7 @@
 
 package edu.cwru.sicu_sms;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ import javafx.stage.Stage;
 public class ExitController {
     
     public void exit() {
-        System.exit(0);
+        Platform.exit();
     }
     
     public void cancel() {
