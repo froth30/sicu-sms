@@ -18,10 +18,10 @@ import processing.core.PFont;
  * @author Ted Frohlich <ttf10@case.edu>
  * @author Abby Walker <amw138@case.edu>
  */
-public class MainApp extends PApplet {
+public class Main extends PApplet {
     
     public static void main(String[] args) {
-        PApplet.main(new String[] {"--present", "edu.cwru.sicu_sms.MainApp"});
+        PApplet.main(new String[] {"--present", "edu.cwru.sicu_sms.Main"});
     }
     
     @Override
