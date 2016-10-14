@@ -6,29 +6,33 @@
 **                          2016 Fall Semester                          **
 \*                                                                      */
 
-package edu.cwru.sicu_sms;
+package edu.cwru.sicu_sms.dialog;
 
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- * The controller for handling exiting the front-end program.
+ * This controller handles dialog-related events.
  *
  * @since October 13, 2016
  * @author Ted Frohlich <ttf10@case.edu>
  * @author Abby Walker <amw138@case.edu>
  */
-public class ExitController {
+public class DialogController {
     
-    public void exit() {
-        Platform.exit();
+    @FXML private Button cancelButton;
+    
+    @FXML
+    private void cancel() {
+        Stage dialog = (Stage) cancelButton.getScene().getWindow();
+        dialog.close();
     }
     
-    public void cancel() {
-        
+    @FXML
+    private void exit() {
+        Platform.exit();
     }
     
 }

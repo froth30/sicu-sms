@@ -24,7 +24,7 @@
                <items>
                   <MenuItem disable="true" mnemonicParsing="false" text="New..." />
                   <MenuItem disable="true" mnemonicParsing="false" text="Open..." />
-                  <MenuItem mnemonicParsing="false" onAction="#onExit" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#confirmExit" text="Exit" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
@@ -41,7 +41,7 @@
       </MenuBar>
       <TabPane layoutX="22.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="50.0">
         <tabs>
-          <Tab text="EMG">
+          <Tab text="   ---   EMG   ---   ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -50,12 +50,12 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="EKG">
+          <Tab text="   ---   EKG   ---   ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
-            <Tab text="EEG">
+            <Tab text="   ---   EEG   ---   ">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>

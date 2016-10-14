@@ -25,7 +25,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sicu-sms.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("sicu_sms.fxml"));
         primaryStage.setTitle("SICU Stress Measurement System");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaximized(true);

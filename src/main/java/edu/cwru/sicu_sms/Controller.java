@@ -8,10 +8,11 @@
 
 package edu.cwru.sicu_sms;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * The controller for the front-end program.
@@ -22,12 +23,14 @@ import javafx.stage.Stage;
  */
 public class Controller {
     
-    public void onExit() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("exitDialog.fxml"));
-        Scene exitScene = new Scene(root);
-        Stage exitStage = new Stage();
-        exitStage.setScene(exitScene);
-        exitStage.show();
+    @FXML
+    private void confirmExit() throws Exception {
+        Stage dialog = new Stage();
+        dialog.initStyle(StageStyle.UNDECORATED);
+        dialog.setScene(new Scene(
+                FXMLLoader.load(getClass().getResource("dialog/exit_dialog.fxml"))
+        ));
+        dialog.show();
     }
     
 }
