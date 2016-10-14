@@ -17,6 +17,8 @@ package edu.cwru.sicu_sms;
  */
 public class Controller {
     
-    
+    public void exit() {
+        System.exit(0);
+    }
     
 }
