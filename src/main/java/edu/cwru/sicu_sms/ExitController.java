@@ -14,20 +14,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * The controller for the front-end program.
+ * The controller for handling exiting the front-end program.
  *
  * @since October 13, 2016
  * @author Ted Frohlich <ttf10@case.edu>
  * @author Abby Walker <amw138@case.edu>
  */
-public class Controller {
+public class ExitController {
     
-    public void onExit() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("exitDialog.fxml"));
-        Scene exitScene = new Scene(root);
-        Stage exitStage = new Stage();
-        exitStage.setScene(exitScene);
-        exitStage.show();
+    public void exit() {
+        System.exit(0);
+    }
+    
+    public void cancel() {
+        
     }
     
 }
