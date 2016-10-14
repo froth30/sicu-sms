@@ -1,4 +1,4 @@
-# stress-measurement-system
+# sicu-sms
 
 SICU Stress Measurement System
 
