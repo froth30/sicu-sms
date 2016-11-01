@@ -27,9 +27,9 @@ public class Controller {
     private void confirmExit() throws Exception {
         Stage dialog = new Stage();
         dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.setScene(new Scene(
-                FXMLLoader.load(getClass().getResource("dialog/exit_dialog.fxml"))
-        ));
+        dialog.setScene(new Scene(FXMLLoader.load(
+                getClass().getResource("dialog/exit_dialog.fxml")
+        )));
         dialog.show();
     }
     
