@@ -43,20 +43,6 @@ public class Controller {
     }
     
     @FXML
-    private void record() {
-        if (isRecording) {  // stop recording...
-            //TODO
-            isRecording = false;
-            recordButton.setText("Start Recording");
-        }
-        else {  // start recording...
-            //TODO
-            isRecording = true;
-            recordButton.setText("Stop Recording");
-        }
-    }
-    
-    @FXML
     private void onMouseEnteredRecordButton() {
         recordButton.setOnMouseEntered(event ->
                 recordButton.setText((isRecording ? "Stop" : "Start") + " Recording")
@@ -68,6 +54,20 @@ public class Controller {
         recordButton.setOnMouseExited(event ->
                 recordButton.setText("Record" + (isRecording ? "ing..." : ""))
         );
+    }
+    
+    @FXML
+    private void record() {
+        if (isRecording) {  // stop recording...
+            //TODO
+            isRecording = false;
+            recordButton.setText("Start Recording");
+        }
+        else {  // start recording...
+            //TODO
+            isRecording = true;
+            recordButton.setText("Stop Recording");
+        }
     }
     
 }
