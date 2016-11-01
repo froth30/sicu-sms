@@ -5,12 +5,12 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -149,7 +149,7 @@
       </TabPane>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-          <Button fx:id="recordButton" blendMode="RED" mnemonicParsing="false" prefHeight="45.0" prefWidth="270.0" text="Record" VBox.vgrow="SOMETIMES">
+          <ToggleButton fx:id="recordButton" mnemonicParsing="false" onAction="#record" prefHeight="45.0" prefWidth="270.0" style="-fx-background-color: red;" text="Record" VBox.vgrow="SOMETIMES">
                <VBox.margin>
                   <Insets left="15.0" top="500.0" />
                </VBox.margin>
@@ -159,7 +159,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Button>
+            </ToggleButton>
          </children>
       </VBox>
    </children>

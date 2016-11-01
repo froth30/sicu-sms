@@ -11,6 +11,7 @@ package edu.cwru.sicu_sms;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,6 +24,14 @@ import javafx.stage.StageStyle;
  */
 public class Controller {
     
+    @FXML private ToggleButton recordButton;
+    
+    private boolean isRecording;
+    
+    public Controller() {
+        isRecording = false;
+    }
+    
     @FXML
     private void confirmExit() throws Exception {
         Stage dialog = new Stage();
@@ -31,6 +40,21 @@ public class Controller {
                 getClass().getResource("dialog/exit_dialog.fxml")
         )));
         dialog.show();
+    }
+    
+    @FXML
+    private void record() {
+        if (isRecording) {  // stop recording
+            //TODO
+            isRecording = false;
+        } else {            // start recording
+            //TODO
+            isRecording = true;
+        }
+    }
+    
+    private void configureRecordButton() {
+        //TODO: Add event handlers to give button a tooltip when mousing over
     }
     
 }
