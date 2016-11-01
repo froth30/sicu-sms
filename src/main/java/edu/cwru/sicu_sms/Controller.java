@@ -44,17 +44,30 @@ public class Controller {
     
     @FXML
     private void record() {
-        if (isRecording) {  // stop recording
+        if (isRecording) {  // stop recording...
             //TODO
             isRecording = false;
-        } else {            // start recording
+            recordButton.setText("Start Recording");
+        }
+        else {  // start recording...
             //TODO
             isRecording = true;
+            recordButton.setText("Stop Recording");
         }
     }
     
-    private void configureRecordButton() {
-        //TODO: Add event handlers to give button a tooltip when mousing over
+    @FXML
+    private void onMouseEnteredRecordButton() {
+        recordButton.setOnMouseEntered(event ->
+                recordButton.setText((isRecording ? "Stop" : "Start") + " Recording")
+        );
+    }
+    
+    @FXML
+    private void onMouseExitedRecordButton() {
+        recordButton.setOnMouseExited(event ->
+                recordButton.setText("Record" + (isRecording ? "ing..." : ""))
+        );
     }
     
 }

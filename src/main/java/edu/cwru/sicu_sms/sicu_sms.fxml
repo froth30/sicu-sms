@@ -149,7 +149,7 @@
       </TabPane>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-          <ToggleButton fx:id="recordButton" mnemonicParsing="false" onAction="#record" prefHeight="45.0" prefWidth="270.0" style="-fx-background-color: red;" text="Record" VBox.vgrow="SOMETIMES">
+          <ToggleButton fx:id="recordButton" mnemonicParsing="false" onAction="#record" onMouseEntered="#onMouseEnteredRecordButton" onMouseExited="#onMouseExitedRecordButton" prefHeight="45.0" prefWidth="270.0" style="-fx-background-color: red;" text="Record" VBox.vgrow="SOMETIMES">
                <VBox.margin>
                   <Insets left="15.0" top="500.0" />
                </VBox.margin>
