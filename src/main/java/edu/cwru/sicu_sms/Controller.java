@@ -145,7 +145,6 @@ public class Controller {
             chartUpdateTask.valueProperty().addListener(new ChangeListener<Date>() {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");  //TODO: eventually just want seconds
                 Random random = new Random();
-                
                 @Override
                 public void changed(ObservableValue<? extends Date> observableDate, Date oldDate, Date newDate) {
                     String strDate = dateFormat.format(newDate);
