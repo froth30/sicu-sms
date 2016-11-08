@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -52,7 +53,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <BorderPane layoutX="438.0" layoutY="330.0" prefWidth="1554.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <BorderPane layoutX="438.0" layoutY="330.0" prefWidth="1554.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                            <left>
                               <BorderPane prefHeight="1000.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                                  <top>
@@ -69,6 +70,9 @@
                                        <cursor>
                                           <Cursor fx:constant="CROSSHAIR" />
                                        </cursor>
+                                       <effect>
+                                          <InnerShadow color="WHITE" />
+                                       </effect>
                                     </LineChart>
                                  </top>
                                  <bottom>
@@ -86,6 +90,9 @@
                                        <cursor>
                                           <Cursor fx:constant="CROSSHAIR" />
                                        </cursor>
+                                       <effect>
+                                          <InnerShadow color="WHITE" />
+                                       </effect>
                                     </LineChart>
                                  </bottom>
                               </BorderPane>
@@ -93,7 +100,7 @@
                            <right>
                               <BorderPane prefHeight="1000.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                                  <top>
-                                    <LineChart fx:id="rightRostralChart" cache="true" legendSide="RIGHT" prefHeight="400.0" prefWidth="600.0" title="Right Rostral" BorderPane.alignment="CENTER">
+                                    <LineChart fx:id="rightRostralChart" cache="true" legendSide="RIGHT" title="Right Rostral" BorderPane.alignment="CENTER">
                                        <xAxis>
                                           <CategoryAxis side="BOTTOM" />
                                        </xAxis>
@@ -107,6 +114,9 @@
                                        <cursor>
                                           <Cursor fx:constant="CROSSHAIR" />
                                        </cursor>
+                                       <effect>
+                                          <InnerShadow color="WHITE" />
+                                       </effect>
                                     </LineChart>
                                  </top>
                                  <bottom>
@@ -124,6 +134,9 @@
                                        <cursor>
                                           <Cursor fx:constant="CROSSHAIR" />
                                        </cursor>
+                                       <effect>
+                                          <InnerShadow color="WHITE" />
+                                       </effect>
                                     </LineChart>
                                  </bottom>
                               </BorderPane>
@@ -137,11 +150,6 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
-            <Tab text="        EMG        ">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
         </tabs>
          <opaqueInsets>
             <Insets />
