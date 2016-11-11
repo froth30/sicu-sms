@@ -70,6 +70,16 @@ public class Controller {
     }
     
     @FXML
+    private void onMousePressedRecordButton() {
+        
+    }
+    
+    @FXML
+    private void onMouseReleasedRecordButton() {
+        
+    }
+    
+    @FXML
     private void record() {
         if (isRecording) {  // stop recording...
             //TODO
