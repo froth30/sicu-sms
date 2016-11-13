@@ -25,7 +25,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.Executors;
 
 /**
@@ -39,10 +42,8 @@ public class Controller {
     
     @FXML private ToggleButton recordButton;
     
-    private boolean isRecording;
-    
     public Controller() {
-        isRecording = false;
+        
     }
     
     @FXML
@@ -57,40 +58,37 @@ public class Controller {
     
     @FXML
     private void onMouseEnteredRecordButton() {
-        recordButton.setOnMouseEntered(event ->
-                recordButton.setText((isRecording ? "Stop" : "Start") + " Recording")
-        );
+        recordButton.setText((isRecording() ? "Stop" : "Start") + " Recording");
     }
     
     @FXML
     private void onMouseExitedRecordButton() {
-        recordButton.setOnMouseExited(event ->
-                recordButton.setText("Record" + (isRecording ? "ing..." : ""))
-        );
+        recordButton.setText("Record" + (isRecording() ? "ing..." : ""));
     }
     
     @FXML
     private void onMousePressedRecordButton() {
-        
+        recordButton.setStyle("-fx-background-color: darkred");
     }
     
     @FXML
     private void onMouseReleasedRecordButton() {
-        
+        recordButton.setStyle("-fx-background-color: red");
     }
     
     @FXML
     private void record() {
-        if (isRecording) {  // stop recording...
-            //TODO
-            isRecording = false;
-            recordButton.setText("Start Recording");
+        if (isRecording()) {  // start recording...
+            //TODO: Run thread for saving data to file.
         }
-        else {  // start recording...
-            //TODO
-            isRecording = true;
-            recordButton.setText("Stop Recording");
+        else {  // stop recording...
+            //TODO: End thread for saving data to file.
         }
+        onMouseEnteredRecordButton();  // indicate what next click would do
+    }
+    
+    private boolean isRecording() {
+        return recordButton.isSelected();
     }
     
     
