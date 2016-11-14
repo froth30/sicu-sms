@@ -15,14 +15,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import jssc.SerialPort;
 
+import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
@@ -39,11 +41,11 @@ import java.util.concurrent.Executors;
  */
 public class Controller {
     
+    @FXML private Menu connectMenu;
     @FXML private ToggleButton recordButton;
     
-    public Controller() {
-        
-    }
+    private FileWriter fileWriter;
+    private SerialPort port;
     
     @FXML
     private void confirmExit() throws Exception {
@@ -55,6 +57,11 @@ public class Controller {
         if (result == ButtonType.OK) {
             Platform.exit();
         }
+    }
+    
+    @FXML
+    public void connect(ActionEvent actionEvent) {
+        port = new SerialPort(((MenuItem) actionEvent.getTarget()).getText());
     }
     
     @FXML
@@ -75,6 +82,21 @@ public class Controller {
     @FXML
     private void onMouseReleasedRecordButton() {
         recordButton.setStyle("-fx-background-color: red");
+    }
+    
+    @FXML
+    public void onShowingConnectMenu(Event event) {
+//        connectMenu.getItems().clear();
+//        String[] portNames = SerialPortList.getPortNames();  // problem with Windows OS?
+//        if (portNames.length == 0) {
+//            MenuItem dummy = new MenuItem("<no ports available>");
+//            dummy.setDisable(true);
+//            connectMenu.getItems().add(dummy);
+//            return;
+//        }
+//        for (String portName : portNames) {
+//            connectMenu.getItems().add(new RadioMenuItem(portName));
+//        }
     }
     
     @FXML

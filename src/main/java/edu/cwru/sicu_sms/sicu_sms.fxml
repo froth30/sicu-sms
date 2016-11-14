@@ -8,9 +8,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -38,6 +40,15 @@
             <Menu mnemonicParsing="false" text="Edit">
                <items>
                   <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu fx:id="connectMenu" mnemonicParsing="false" onAction="#connect" onShowing="#onShowingConnectMenu" text="Connect">
+               <items>
+                  <RadioMenuItem disable="true" mnemonicParsing="false" text="&lt;no ports available&gt;">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Ports" />
+                     </toggleGroup>
+                  </RadioMenuItem>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
