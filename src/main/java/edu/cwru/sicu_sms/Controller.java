@@ -8,6 +8,7 @@
 
 package edu.cwru.sicu_sms;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -15,14 +16,12 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ToggleButton;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -48,12 +47,14 @@ public class Controller {
     
     @FXML
     private void confirmExit() throws Exception {
-        Stage dialog = new Stage();
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.setScene(new Scene(FXMLLoader.load(
-                getClass().getResource("dialog/exit_dialog.fxml")
-        )));
-        dialog.show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Exit");
+        alert.setHeaderText("Are you sure you want to exit?");
+        
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        if (result == ButtonType.OK) {
+            Platform.exit();
+        }
     }
     
     @FXML
