@@ -1,6 +1,11 @@
+### SICU Stress Measurement System
 
+# IDEA directory
 /.idea/tasks.xml
 /.idea/workspace.xml
+
+# Compiler Output Directories
 /bin/
+/build/
 /out/
 /target/
