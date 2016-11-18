@@ -22,8 +22,6 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.*;
-import jssc.SerialPort;
-import jssc.SerialPortList;
 
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
@@ -32,6 +30,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
+
+import jssc.SerialPort;
+import jssc.SerialPortList;
 
 /**
  * The controller for the front-end program.
