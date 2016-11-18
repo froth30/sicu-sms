@@ -46,7 +46,7 @@
                <items>
                   <RadioMenuItem disable="true" mnemonicParsing="false" text="&lt;no ports available&gt;">
                      <toggleGroup>
-                        <ToggleGroup fx:id="Ports" />
+                        <ToggleGroup fx:id="connectGroup" />
                      </toggleGroup>
                   </RadioMenuItem>
                </items>
