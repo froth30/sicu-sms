@@ -9,3 +9,6 @@
 /build/
 /out/
 /target/
+
+# Data Collection Directory
+/data/
