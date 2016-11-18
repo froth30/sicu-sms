@@ -60,6 +60,7 @@ public class Controller {
         
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
+            disconnect();
             Platform.exit();
         }
     }
