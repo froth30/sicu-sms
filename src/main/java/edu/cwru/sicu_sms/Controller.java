@@ -30,8 +30,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import jssc.SerialPort;
+import jssc.SerialPortEvent;
+import jssc.SerialPortException;
 
 /**
  * The controller for the front-end program.
@@ -109,6 +113,43 @@ public class Controller {
             //TODO: End thread for saving data to file.
         }
         onMouseEnteredRecordButton();  // indicate what next click would do
+    }
+    
+    private boolean connect(String portName) {
+        System.out.println("Connecting to port " + portName + "...");
+        boolean success = false;
+        SerialPort serialPort = new SerialPort(portName);
+        try {
+            serialPort.openPort();
+            serialPort.setParams(
+                    SerialPort.BAUDRATE_9600,
+                    SerialPort.DATABITS_8,
+                    SerialPort.STOPBITS_1,
+                    SerialPort.PARITY_NONE);
+            serialPort.setEventsMask(SerialPort.MASK_RXCHAR);
+            serialPort.addEventListener((SerialPortEvent event) -> {
+                if (event.isRXCHAR()) {
+                    try {
+                        String s = serialPort.readString(event.getEventValue());
+                        System.out.println(s);
+                        // TODO: Update UI accordingly?
+                    } catch (SerialPortException e) {
+                        logConnectionProblem(e);
+                    }
+                }
+            });
+            this.serialPort = serialPort;
+            success = true;
+        } catch (SerialPortException e) {
+            logConnectionProblem(e);
+            System.err.println("SerialPortException: " + e);
+        }
+        return success;
+    }
+    
+    private void logConnectionProblem(SerialPortException e) {
+        Logger.getLogger(this.getClass().getName())
+                .log(Level.SEVERE, null, e);
     }
     
     private boolean isRecording() {
