@@ -32,6 +32,7 @@ import java.util.Random;
 import java.util.concurrent.Executors;
 
 import jssc.SerialPort;
+import jssc.SerialPortException;
 import jssc.SerialPortList;
 
 /**
@@ -44,6 +45,7 @@ import jssc.SerialPortList;
 public class Controller {
     
     @FXML private Menu connectMenu;
+    @FXML public ToggleGroup connectGroup;
     @FXML private ToggleButton recordButton;
     
     private FileWriter fileWriter;
@@ -64,7 +66,15 @@ public class Controller {
     
     @FXML
     public void connect(ActionEvent actionEvent) {
-        serialPort = new SerialPort(actionEvent.getTarget().toString());
+        String portName = connectGroup.getSelectedToggle().toString();  // TODO: Doesn't work.
+        serialPort = new SerialPort(portName);
+        try {
+            System.out.println("Connecting to serial port " + serialPort.getPortName() + "...");
+            serialPort.openPort();
+            System.out.println("Successfully connected!");
+        } catch (SerialPortException e) {
+            System.out.println("Sorry, couldn't connect!");
+        }
     }
     
     @FXML
