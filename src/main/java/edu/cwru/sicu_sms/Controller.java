@@ -46,7 +46,7 @@ public class Controller {
     @FXML private ToggleButton recordButton;
     
     private FileWriter fileWriter;
-    private SerialPort port;
+    private SerialPort serialPort;
     
     @FXML
     private void confirmExit() throws Exception {
@@ -62,7 +62,7 @@ public class Controller {
     
     @FXML
     public void connect(ActionEvent actionEvent) {
-        port = new SerialPort(((MenuItem) actionEvent.getTarget()).getText());
+        serialPort = new SerialPort(((MenuItem) actionEvent.getTarget()).getText());
     }
     
     @FXML
