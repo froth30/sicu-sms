@@ -147,13 +147,13 @@ public class Controller {
         return success;
     }
     
+    private boolean isRecording() {
+        return recordButton.isSelected();
+    }
+    
     private void logConnectionProblem(SerialPortException e) {
         Logger.getLogger(this.getClass().getName())
                 .log(Level.SEVERE, null, e);
-    }
-    
-    private boolean isRecording() {
-        return recordButton.isSelected();
     }
     
     
