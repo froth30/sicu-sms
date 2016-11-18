@@ -22,6 +22,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.*;
+import jssc.SerialPort;
+import jssc.SerialPortList;
 
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
@@ -30,12 +32,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import jssc.SerialPort;
-import jssc.SerialPortEvent;
-import jssc.SerialPortException;
 
 /**
  * The controller for the front-end program.
@@ -60,14 +56,14 @@ public class Controller {
         
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
-            disconnect();
+            // TODO: Stop serial port connection.
             Platform.exit();
         }
     }
     
     @FXML
     public void connect(ActionEvent actionEvent) {
-        serialPort = new SerialPort(((MenuItem) actionEvent.getTarget()).getText());
+        serialPort = new SerialPort(actionEvent.getTarget().toString());
     }
     
     @FXML
@@ -92,17 +88,17 @@ public class Controller {
     
     @FXML
     public void onShowingConnectMenu(Event event) {
-//        connectMenu.getItems().clear();
-//        String[] portNames = SerialPortList.getPortNames();  // problem with Windows OS?
-//        if (portNames.length == 0) {
-//            MenuItem dummy = new MenuItem("<no ports available>");
-//            dummy.setDisable(true);
-//            connectMenu.getItems().add(dummy);
-//            return;
-//        }
-//        for (String portName : portNames) {
-//            connectMenu.getItems().add(new RadioMenuItem(portName));
-//        }
+        connectMenu.getItems().clear();
+        String[] portNames = SerialPortList.getPortNames();
+        if (portNames.length == 0) {
+            MenuItem dummy = new MenuItem("<no ports available>");
+            dummy.setDisable(true);
+            connectMenu.getItems().add(dummy);
+            return;
+        }
+        for (String portName : portNames) {
+            connectMenu.getItems().add(new RadioMenuItem(portName));
+        }
     }
     
     @FXML
@@ -116,60 +112,8 @@ public class Controller {
         onMouseEnteredRecordButton();  // indicate what next click would do
     }
     
-    private boolean connect(String portName) {
-        System.out.println("Connecting to port " + portName + "...");
-        boolean success = false;
-        SerialPort serialPort = new SerialPort(portName);
-        try {
-            serialPort.openPort();
-            serialPort.setParams(
-                    SerialPort.BAUDRATE_9600,
-                    SerialPort.DATABITS_8,
-                    SerialPort.STOPBITS_1,
-                    SerialPort.PARITY_NONE);
-            serialPort.setEventsMask(SerialPort.MASK_RXCHAR);
-            serialPort.addEventListener((SerialPortEvent event) -> {
-                if (event.isRXCHAR()) {
-                    try {
-                        String s = serialPort.readString(event.getEventValue());
-                        System.out.println(s);
-                        // TODO: Update UI accordingly?
-                    } catch (SerialPortException e) {
-                        logConnectionProblem(e);
-                    }
-                }
-            });
-            this.serialPort = serialPort;
-            success = true;
-        } catch (SerialPortException e) {
-            logConnectionProblem(e);
-            System.err.println("SerialPortException: " + e);
-        }
-        return success;
-    }
-    
-    private boolean disconnect() {
-        System.out.println("Disconnecting from port...");
-        boolean success = false;
-        if (serialPort != null) {
-            try {
-                serialPort.removeEventListener();
-                if (serialPort.isOpened()) serialPort.closePort();
-                success = true;
-            } catch (SerialPortException e) {
-                logConnectionProblem(e);
-            }
-        }
-        return success;
-    }
-    
     private boolean isRecording() {
         return recordButton.isSelected();
-    }
-    
-    private void logConnectionProblem(SerialPortException e) {
-        Logger.getLogger(this.getClass().getName())
-                .log(Level.SEVERE, null, e);
     }
     
     
