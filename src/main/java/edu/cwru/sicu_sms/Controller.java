@@ -147,6 +147,21 @@ public class Controller {
         return success;
     }
     
+    private boolean disconnect() {
+        System.out.println("Disconnecting from port...");
+        boolean success = false;
+        if (serialPort != null) {
+            try {
+                serialPort.removeEventListener();
+                if (serialPort.isOpened()) serialPort.closePort();
+                success = true;
+            } catch (SerialPortException e) {
+                logConnectionProblem(e);
+            }
+        }
+        return success;
+    }
+    
     private boolean isRecording() {
         return recordButton.isSelected();
     }
