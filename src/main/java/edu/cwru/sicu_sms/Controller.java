@@ -82,13 +82,17 @@ public class Controller {
     @FXML
     public void connect(ActionEvent actionEvent) {
         String portName = "COM5";//connectGroup.getSelectedToggle().toString();  // TODO: Doesn't work.
-        serialPort = new SerialPort(portName);
         try {
-            System.out.println("Connecting to serial port " + serialPort.getPortName() + "...");
-            serialPort.openPort();
-            System.out.println("\t->\tSuccessfully connected!");
+            System.out.println("Connecting to serial port " + portName + "...");
+            if (serialPort != null && serialPort.isOpened()) {
+                System.out.println("\t->\tAlready connected!");
+            } else {
+                serialPort = new SerialPort(portName);
+                serialPort.openPort();
+                System.out.println("\t->\tSuccessfully connected!");
+            }
         } catch (SerialPortException e) {
-            System.out.println("\t->\tSorry, couldn't connect!");
+            System.out.println("\t->\tCouldn't connect!");
         }
     }
     
