@@ -10,5 +10,6 @@
 /out/
 /target/
 
-# Data Collection Directory
+# Logging Directories
 /data/
+/log/
