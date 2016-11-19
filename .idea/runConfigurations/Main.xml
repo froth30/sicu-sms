@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" singleton="true">
+  <configuration default="false" name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" singleton="true" show_console_on_std_out="true" show_console_on_std_err="true">
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     <option name="MAIN_CLASS_NAME" value="edu.cwru.sicu_sms.Main" />
     <option name="VM_PARAMETERS" value="" />
