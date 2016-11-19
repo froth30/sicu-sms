@@ -74,14 +74,14 @@ public class Controller {
         
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
-            // TODO: Stop serial port connection.
+            disconnect();
             Platform.exit();
         }
     }
     
     @FXML
     public void connect(ActionEvent actionEvent) {
-        String portName = connectGroup.getSelectedToggle().toString();  // TODO: Doesn't work.
+        String portName = "COM5";//connectGroup.getSelectedToggle().toString();  // TODO: Doesn't work.
         serialPort = new SerialPort(portName);
         try {
             System.out.println("Connecting to serial port " + serialPort.getPortName() + "...");
@@ -147,6 +147,28 @@ public class Controller {
         serialPortList = FXCollections.observableArrayList();
         serialPortList.addAll(SerialPortList.getPortNames());
         return !serialPortList.isEmpty();
+    }
+    
+    /**
+     * Disconnect from the serial port.
+     *
+     * @return <code>true</code> if the serial port was successfully disconnected; <code>false</code> if something went wrong
+     */
+    private boolean disconnect() {
+        boolean success = false;
+        try {
+            System.out.println("Disconnecting from serial port...");
+            success = serialPort.closePort();
+            if (success){
+                System.out.println("\t -> Successfully disconnected!");
+            } else {
+                throw new SerialPortException(serialPort.getPortName(),
+                        "disconnect()", "Couldn't disconnect!");
+            }
+        } catch (SerialPortException e) {
+            System.out.println("\t -> Already disconnected.");
+        }
+        return success;
     }
     
     private boolean isRecording() {
