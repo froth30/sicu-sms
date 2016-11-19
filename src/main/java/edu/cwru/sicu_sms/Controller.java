@@ -50,6 +50,21 @@ public class Controller {
     
     private FileWriter fileWriter;
     private SerialPort serialPort;
+    private ObservableList<String> serialPortList;
+    
+    /**
+     * Construct a controller for the front-end program by performing the setup routine:
+     * <ul>
+     *     1. Detect serial ports. <br>
+     *     2. Connect to the first port by default, if it exists. <br>
+     * </ul>
+     */
+    public Controller() {
+        boolean portDetected = detectSerialPorts();
+        if (portDetected) {
+            // TODO: Connect to first port by default.
+        }
+    }
     
     @FXML
     private void confirmExit() throws Exception {
@@ -121,6 +136,17 @@ public class Controller {
             //TODO: End thread for saving data to file.
         }
         onMouseEnteredRecordButton();  // indicate what next click would do
+    }
+    
+    /**
+     * Initialize the list of detected ports.
+     *
+     * @return <code>true</code> if at least one serial port was detected; <code>false</code> otherwise
+     */
+    private boolean detectSerialPorts() {
+        serialPortList = FXCollections.observableArrayList();
+        serialPortList.addAll(SerialPortList.getPortNames());
+        return !serialPortList.isEmpty();
     }
     
     private boolean isRecording() {
